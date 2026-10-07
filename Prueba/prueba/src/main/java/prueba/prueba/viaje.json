@@ -1,0 +1,29 @@
+{
+  "codigo": "CO1",
+  "cliente": {
+    "nombre": "Javi",
+    "correo": "javi@fake.com"
+  },
+  "pasajeros": [
+    {
+      "nombre": "Jack",
+      "edad": 30,
+      "necesidades": [
+        "Casa"
+      ]
+    },
+    {
+      "nombre": "John",
+      "edad": 33,
+      "necesidades": [
+        "Oficio"
+      ]
+    }
+  ],
+  "vuelo": {
+    "origen": "España",
+    "destino": "Italia",
+    "fecha": "10 de diciembre",
+    "confirmado": true
+  }
+}

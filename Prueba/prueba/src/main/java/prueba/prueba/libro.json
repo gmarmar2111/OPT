@@ -1,0 +1,13 @@
+{
+    "titulo": "En el Camino",
+    "autor": "Jack Kerouac",
+    "numeroPaginas": 359,
+    "disponibilidad": true,
+    "generos": ["Novela", "Corriente de conciencia", "Ficción Literaria"],
+    "editorial": {
+      "nombre": "Anagrama",
+      "pais": "España"
+    }
+}
+
+
