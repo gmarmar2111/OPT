@@ -8,25 +8,34 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ControllerEjercicio4 {
 
-
-
-    // Dos Argumentos
     @GetMapping("/tabla")
-    public String tabla(@RequestParam(name = "filas", required = false) Integer filas,
-                      @RequestParam(name = "columnas", required = false) Integer columnas){
+    public String tabla(@RequestParam(name = "filas", required = false) String filas,
+                      @RequestParam(name = "columnas", required = false) String columnas){
+
+        Integer numFilas;
+        Integer numColumnas;
 
         // Validaciones
-        if (filas < 1 || filas >20 || filas == null){
-            filas = 1;
+        try {
+            numFilas = Integer.parseInt(filas);
+        }catch (NumberFormatException e){
+            numFilas = 1;
         }
-        if (columnas < 1 || columnas >20 || columnas == null){ //  Fuera de rango = 1
-            columnas = 1;
+        try {
+            numColumnas = Integer.parseInt(columnas);
+        }catch (NumberFormatException e){
+            numColumnas = 1;
         }
 
-        return crearTabla(filas, columnas);
+            if (numFilas < 1 || numFilas > 20 ) {
+                numFilas = 1;
+            }
+            if (numColumnas < 1 || numColumnas > 20) { //  Fuera de rango = 1
+                numColumnas = 1;
+            }
+
+            return crearTabla(numFilas, numColumnas);
     }
-
-
 
     // Metodo para crear la tabla
     private static String crearTabla(Integer filas, Integer columnas) {
@@ -36,14 +45,14 @@ public class ControllerEjercicio4 {
         // Encabezado
         tabla += "<tr>";
         for (int i = 1; i <= columnas; i++){
-            tabla += "<th>Columna" + i + "</th>";
+            tabla += "<th style=\"border:solid\">Columna" + i + "</th>";
         }
         tabla += "<tr>";
 
         for (int i = 1; i <= filas; i++){
             tabla += "<tr>";
             for (int j = 1; j <= columnas; j++){
-                tabla += "<td>Fila " + i + ", Columna " + j + "</td>";
+                tabla += "<td style=\"border:solid\">Fila " + i + ", Columna " + j + "</td>";
 
             }
             tabla += "</tr>";
