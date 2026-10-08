@@ -1,0 +1,7 @@
+{
+  "nombre": "Gonzalo",
+  "ciudad": "Jaén",
+  "edad": 18,
+  "cuentaActiva": true,
+  "hobbies": ["futbol", "basket" , "tenis"]
+}

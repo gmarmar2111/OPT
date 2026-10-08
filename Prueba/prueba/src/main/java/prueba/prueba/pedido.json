@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "nombre": "Lucas",
+  "productos": [
+    {
+      "nombre": "libro",
+      "cantidad": 1,
+      "precio": 3.99
+    },
+    {
+      "nombre": "pelota",
+      "cantidad": 2,
+      "precio": 6
+    }
+  ]
+}
