@@ -9,19 +9,22 @@ public class ThymeleafController {
 
     @GetMapping("/elegir")
     public String elegir(@RequestParam(name = "idioma", required = false) String idioma) {
-        if (idioma.equals("espanyol")){
-            return "redirect:/espanyol.html";
-        }
-        else if (idioma.equals("ingles")) {
-            return "redirect:/ingles.html";
-        }
-        else if (idioma.equals("aleman")){
-            return "redirect:/aleman.html";
-        }
-        else if (idioma.equals("japones")) {
-            return "redirect:/japones.html";
-        }
-            return "redirect:/ingles.html";
+        try {
+            if (idioma.equals("espanyol")) {
+                return "redirect:/espanyol.html";
+            } else if (idioma.equals("ingles")) {
+                return "redirect:/ingles.html";
+            } else if (idioma.equals("aleman")) {
+                return "redirect:/aleman.html";
+            } else if (idioma.equals("japones")) {
+                return "redirect:/japones.html";
+            }
+            else {
+                return "redirect:/ingles.html";
+            }
 
+        }catch(NullPointerException e){
+            return "redirect:/ingles.html";
+        }
     }
 }
