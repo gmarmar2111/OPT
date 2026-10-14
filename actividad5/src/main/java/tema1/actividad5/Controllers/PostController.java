@@ -9,7 +9,17 @@ import tema1.actividad5.Pedido;
 public class PostController {
     @PostMapping("/pedido")
     public String pedido(@RequestBody Pedido pedido){
-        return "Pedido creado con exito. Cliente :" + pedido.getCliente().getNombre() + " Correo " + pedido.getCliente().getCorreo();
+        String respuesta = """
+                {
+                  "cliente": "$s",
+                  "totalProductos": 4,
+                  "precioTotal": 216.00,
+                  "mensaje": "Pedido recibido correctamente"
+                }
+                """.formatted();
+        String respuesta = String.format()
+        return
+
     }
 
 }
