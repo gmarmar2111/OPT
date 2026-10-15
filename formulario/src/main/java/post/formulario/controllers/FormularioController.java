@@ -21,16 +21,6 @@ public class FormularioController {
     @GetMapping("/login")
     public String mostrarLogin(){ return "login";}
 
-    @PostMapping("/login")
-    @ResponseBody
-    public String procesarLogin(@ModelAttribute Login login){
-        if (lista.containsKey(login.getNombre())){
-            return login.getNombre();
-        }
-        return "nada monstruo";
-
-    }
-
 
     @PostMapping("/procesar")
     @ResponseBody
@@ -47,12 +37,14 @@ public class FormularioController {
             passwdEmpty = true;
         }
 
+        // Asegurarse de que nombre o email no esten vacíos
         if (formulario.getNombre().isEmpty() || formulario.getEmail().isEmpty()){
-            System.out.println("Correo o email no validos");
+            return "Correo o email no validos";
         }
 
-
+        // Agregar al map tanto el nombre como el email con el valor de contraseña
         lista.put(formulario.getNombre(), formulario.getContraseña());
+        lista.put(formulario.getEmail(), formulario.getContraseña());
 
         String mensaje = "Formulario recibido. Nombre: " + formulario.getNombre()
                 + ", email: " + formulario.getEmail();
@@ -60,7 +52,21 @@ public class FormularioController {
         if (passwdEmpty){
             mensaje += " Contraseña generada automaticamente: " + formulario.getContraseña();
         }
+
         return mensaje;
+    }
+
+    @PostMapping("/login")
+    @ResponseBody
+    public String procesarLogin(@ModelAttribute Login login){
+        if (!lista.containsKey(login.getNombre())){
+            return "Usuario Inexistente";
+        }
+        if (!lista.get(login.getNombre()).equals(login.getContraseña())){
+            return "Contraseña Incorrecta";
+        }
+
+        return "Usuario Existente y Contraseña Correcta";
     }
 
 }
