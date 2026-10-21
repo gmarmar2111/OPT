@@ -2,6 +2,9 @@ package tema1.taquilla.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import tema1.taquilla.model.Obra;
+import tema1.taquilla.model.Reserva;
+import tema1.taquilla.model.Respuesta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +76,7 @@ public class TaquillaController {
 
     @GetMapping("/cartelera")
     @ResponseBody
-    public RespuestaBusqueda buscadorObras(@RequestParam(name = "precioMax" , required = false) String precioMax,
+    public List<Obra> buscadorObras(@RequestParam(name = "precioMax" , required = false) String precioMax,
                                            @RequestParam(name = "soloDisponibles", required = false) String soloDisponibles){
         try {
             ArrayList<Obra> obrasFiltro = new ArrayList<>();
@@ -89,10 +92,10 @@ public class TaquillaController {
                     obrasFiltro.add(obra);
                 }
             }
-            return new RespuestaBusqueda(obrasFiltro);
+            return obrasFiltro;
 
         } catch (NullPointerException e) {
-            return new RespuestaBusqueda(obras);
+            return obras;
         }
     }
 }

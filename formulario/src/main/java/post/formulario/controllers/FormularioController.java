@@ -38,7 +38,7 @@ public class FormularioController {
         }
 
         // Asegurarse de que nombre o email no esten vacíos
-        if (formulario.getNombre().isEmpty() || formulario.getEmail().isEmpty()){
+        if (formulario.getNombre().trim().isEmpty() || formulario.getEmail().trim().isEmpty()){
             return "Correo o email no validos";
         }
 

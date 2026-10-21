@@ -9,13 +9,17 @@
         <module name="ejercicio4" />
         <module name="formulario" />
         <module name="thymeleaf" />
+        <module name="taquilla" />
+        <module name="Minijuego" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Minijuego" options="-parameters" />
       <module name="ejercicio4" options="-parameters" />
       <module name="formulario" options="-parameters" />
+      <module name="taquilla" options="-parameters" />
       <module name="thymeleaf" options="-parameters" />
     </option>
   </component>

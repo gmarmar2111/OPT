@@ -1,4 +1,4 @@
-package tema1.taquilla.controllers;
+package tema1.taquilla.model;
 
 public class Respuesta {
     private String estado;
