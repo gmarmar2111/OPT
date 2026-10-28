@@ -1,16 +1,15 @@
 package tema1.biblioteca.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import tema1.biblioteca.enums.Estado;
 import tema1.biblioteca.models.Libro;
 import tema1.biblioteca.models.Prestamo;
 import tema1.biblioteca.models.Respuesta;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -50,8 +49,30 @@ public class BibliotecaController {
         if (prestamo.getDiasPrestamo() < 1 || prestamo.getDiasPrestamo() > 30){
             return new Respuesta(Estado.DENEGADO, "Duración no válida (1-30 días)");
         }
-        libroElegido.setEjemplaresDisponibles(libroElegido.getEjemplaresDisponibles() - 1);
 
-        return new Respuesta(Estado.CONCEDIDO, "Concedido");
+        libroElegido.setEjemplaresDisponibles(libroElegido.getEjemplaresDisponibles() - 1);
+        int diasPrestamo = prestamo.getDiasPrestamo();
+        LocalDate fechaDevolucion = LocalDate.now().plusDays(prestamo.getDiasPrestamo());
+        if (prestamo.getCarnetPremium()){
+            fechaDevolucion.plusDays(7);
+            diasPrestamo += 7;
+        }
+
+        return new Respuesta(Estado.CONCEDIDO, prestamo.getNombreSocio(), libroElegido.getTitulo(), diasPrestamo, fechaDevolucion);
+    }
+
+    @GetMapping("/libros")
+    @ResponseBody
+    public List<Libro> mostrarLibros(@RequestParam(required = false) String categoria,
+                                     @RequestParam(required = false) String autor,
+                                     @RequestParam(required = false) Boolean soloDisponibles){
+        autor = autor.toLowerCase();
+        List<Libro> librosFiltro = new ArrayList<>();
+        boolean cumple = true;
+        for (Libro libro : libros){
+
+        }
+        return librosFiltro;
+
     }
 }
