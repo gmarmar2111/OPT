@@ -2,6 +2,7 @@ package tema1.biblioteca.models;
 
 import tema1.biblioteca.enums.Estado;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Respuesta {
@@ -9,7 +10,7 @@ public class Respuesta {
     private String socio;
     private String libro;
     private Integer diasTotales;
-    private Date fechaDevolucion;
+    private LocalDate fechaDevolucion;
     private String motivo;
 
     public Respuesta() {
@@ -20,7 +21,7 @@ public class Respuesta {
         this.motivo = motivo;
     }
 
-    public Respuesta(Estado estado, String socio, String libro, Integer diasTotales, Date fechaDevolucion) {
+    public Respuesta(Estado estado, String socio, String libro, Integer diasTotales, LocalDate fechaDevolucion) {
         this.estado = estado;
         this.socio = socio;
         this.libro = libro;
@@ -68,11 +69,11 @@ public class Respuesta {
         this.diasTotales = diasTotales;
     }
 
-    public Date getFechaDevolucion() {
+    public LocalDate getFechaDevolucion() {
         return fechaDevolucion;
     }
 
-    public void setFechaDevolucion(Date fechaDevolucion) {
+    public void setFechaDevolucion(LocalDate fechaDevolucion) {
         this.fechaDevolucion = fechaDevolucion;
     }
 }
