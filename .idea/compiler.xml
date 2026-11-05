@@ -11,6 +11,7 @@
         <module name="taquilla" />
         <module name="biblioteca" />
         <module name="Actividad1bis" />
+        <module name="actividad2" />
         <module name="thymeleaf" />
         <module name="Minijuego" />
       </profile>
@@ -24,6 +25,7 @@
       <module name="Actividad1" options="-parameters" />
       <module name="Actividad1bis" options="-parameters" />
       <module name="Minijuego" options="-parameters" />
+      <module name="actividad2" options="-parameters" />
       <module name="biblioteca" options="-parameters" />
       <module name="ejercicio4" options="-parameters" />
       <module name="formulario" options="-parameters" />
