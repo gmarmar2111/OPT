@@ -1,7 +1,7 @@
 package aplicacionesspring.actividad2.models;
 
 public class Libro {
-    private Integer id;
+    private Long id;
     private String titulo;
     private String autor;
     private String isbn;
@@ -9,7 +9,7 @@ public class Libro {
     private Boolean prestado;
     private String notasInternas;
 
-    public Libro(Integer id, String titulo, String autor, String isbn, Integer anioPublicacion, Boolean prestado,String notasInternas) {
+    public Libro(Long id, String titulo, String autor, String isbn, Integer anioPublicacion, Boolean prestado,String notasInternas) {
         this.id = id;
         if (titulo.equals("")){
             throw new IllegalArgumentException("El titulo no puede estar vacio");
@@ -28,11 +28,11 @@ public class Libro {
         this.notasInternas = notasInternas;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

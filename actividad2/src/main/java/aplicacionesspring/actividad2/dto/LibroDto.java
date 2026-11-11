@@ -1,5 +1,7 @@
 package aplicacionesspring.actividad2.dto;
 
+import aplicacionesspring.actividad2.models.Libro;
+
 public class LibroDto {
 
     private final Long id;
@@ -9,13 +11,13 @@ public class LibroDto {
     private final Integer anioPublicacion;
     private final Boolean prestado;
 
-    public LibroDto(Long id, String titulo, String autor, String isbn, Integer anioPublicacion, Boolean prestado) {
-        this.id = id;
-        this.titulo = titulo;
-        this.autor = autor;
-        this.isbn = isbn;
-        this.anioPublicacion = anioPublicacion;
-        this.prestado = prestado;
+    public LibroDto(Libro libro) {
+        this.id = libro.getId();
+        this.titulo = libro.getTitulo();
+        this.autor = libro.getAutor();
+        this.isbn = libro.getIsbn();
+        this.anioPublicacion = libro.getAnioPublicacion();
+        this.prestado = libro.getPrestado();
     }
 
     public Long getId() {
