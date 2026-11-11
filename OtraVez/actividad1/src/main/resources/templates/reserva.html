@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserva</title>
+</head>
+<body>
+<form action="/reserva" method="post">
+    <label for="eventoId">Obra:</label>
+    <select name="eventoId" id="eventoId">
+        <option value="101">Casa de Bernarda Alba</option>
+        <option value="102">Yerma</option>
+        <option value="103">El Tragaluz</option>
+    </select><br>
+    <label for="nombreCliente">Nombre Cliente:</label>
+    <input type="text" name="nombreCliente" id="nombreCliente" required><br>
+    <label for="tipoEntrada">Zona:</label>
+    <select name="tipoEntrada" id="tipoEntrada" required>
+        <option value="GENERAL">General</option>
+        <option value="VIP">VIP</option>
+    </select><br>
+    <label for="cantidad">Entradas:</label>
+    <input type="number" name="cantidad" id="cantidad" required><br>
+    <label for="codigoCupon">Cupon de Descuento:</label>
+    <input type="text" name="codigoCupon" id="codigoCupon"><br>
+    <input type="submit" value="Reservar">
+</form>
+</body>
+</html>

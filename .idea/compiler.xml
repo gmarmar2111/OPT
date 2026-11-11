@@ -18,6 +18,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Actividad1" target="21" />
+      <module name="actividad1" target="21" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
